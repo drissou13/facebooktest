@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>facebook test </title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Facebook - Connexion ou inscription</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: #e9ebee;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #3b5998;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header input {
+      padding: 5px;
+      margin: 0 5px;
+    }
+    header button {
+      background: #4267b2;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+    }
+    .left, .right {
+      width: 40%;
+      padding: 20px;
+    }
+    .left h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .form-box input, .form-box select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-box button {
+      width: 100%;
+      background-color: #42b72a;
+      color: white;
+      padding: 12px;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .newsfeed {
+      display: none;
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .stories {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    .story {
+      width: 100px;
+      height: 150px;
+      background: #ccc;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+      padding-top: 120px;
+      background-image: url('https://via.placeholder.com/100x150');
+      background-size: cover;
+      color: white;
+    }
+    .post-box textarea {
+      width: 100%;
+      height: 60px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .post {
+      background: #f6f7f9;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>facebook</strong></div>
+    <div>
+      <input type="email" id="loginEmail" placeholder="Adresse e-mail">
+      <input type="password" id="loginPassword" placeholder="Mot de passe">
+      <button onclick="validateLoginOrRegister('login')">Connexion</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="left">
+      <h2>Avec Facebook, partagez et restez en contact avec votre entourage.</h2>
+      <img src="https://www.facebook.com/images/fb_icon_325x325.png" width="100">
+    </div>
+
+    <div class="right">
+      <div class="form-box">
+        <h2>Inscription</h2>
+        <input type="text" id="prenom" placeholder="Prénom" value="">
+        <input type="text" id="nom" placeholder="Nom de famille" value="">
+        <input type="email" id="email" value="">
+        <input type="email"id="emailConfirm" value="">
+        <input type="password" id="regPassword" value="mednum2025">
+        <label>Date de naissance :</label>
+        <select id="day"></select>
+        <select id="month"></select>
+        <select id="year"></select>
+        <div>
+          <label><input type="radio" name="genre"> Femme</label>
+          <label><input type="radio" name="genre" checked> Homme</label>
+        </div>
+        <button onclick="validateLoginOrRegister('register')">Inscription</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="newsfeed" id="newsfeed">
+    <h2>Bienvenue Driss !</h2>
+   <div class="stories">
+  <div class="story" style="background-image: url('https://static.wixstatic.com/media/9a021f_bb7181e290e2437793b9e0ac26afb44a~mv2.jpg/v1/fill/w_287,h_430,al_c,q_80,usm_4.00_1.00_0.00,enc_auto/9a021f_bb7181e290e2437793b9e0ac26afb44a~mv2.jpg');">Driss</div>
+  <div class="story" style="background-image: url('https://static.wixstatic.com/media/9a021f_aa49d0a0363c473aa736a14e23d97456~mv2.jpg/v1/fill/w_323,h_430,al_c,q_80,usm_4.00_1.00_0.00,enc_auto/9a021f_aa49d0a0363c473aa736a14e23d97456~mv2.jpg');">Yasmine</div>
+  <div class="story" style="background-image: url('https://static.wixstatic.com/media/9a021f_200731bd5bd34b1cb921af33166dbe31~mv2.jpg/v1/fill/w_573,h_430,al_c,q_80,usm_4.00_1.00_0.00,enc_auto/9a021f_200731bd5bd34b1cb921af33166dbe31~mv2.jpg');">Ali</div>
+  <div class="story" style="background-image: url('https://static.wixstatic.com/media/9a021f_c4edf12ee7544803b3264e8a885f0c63~mv2.jpg/v1/fill/w_374,h_468,al_c,q_80,usm_4.00_1.00_0.00,enc_auto/9a021f_c4edf12ee7544803b3264e8a885f0c63~mv2.jpg');">Lina</div>
+</div>
+
+    <div class="post-box">
+      <textarea id="postContent" placeholder="Que voulez-vous dire ?"></textarea>
+      <button onclick="addPost()">Publier</button>
+    </div>
+    <div id="posts">
+      <div class="post"><strong>Amina B.</strong><p>J'adore cette nouvelle interface, c’est trop cool ! 😍</p></div>
+      <div class="post"><strong>Saidou Abatcha .</strong><p>Ne te baisse jamais pour regarder dans le derriere de quelqu'un sinon quelqu'un se baissera derriere toi et regardera dans le tien  </p></div>
+    </div>
+  </div>
+
+  <script>
+    const user = {
+      email: "drissmednum@fake.fr",
+      password: "mednum2025"
+    };
+
+    function populateDateSelects() {
+      const daySelect = document.getElementById("day");
+      const monthSelect = document.getElementById("month");
+      const yearSelect = document.getElementById("year");
+      for (let i = 1; i <= 31; i++) daySelect.innerHTML += `<option value="${i}">${i}</option>`;
+      const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+      months.forEach((m, i) => monthSelect.innerHTML += `<option value="${i+1}">${m}</option>`);
+      for (let y = 2025; y >= 1900; y--) yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+    }
+
+    function validateLoginOrRegister(type) {
+      let email, password;
+      if (type === 'login') {
+        email = document.getElementById("loginEmail").value;
+        password = document.getElementById("loginPassword").value;
+      } else {
+        email = document.getElementById("email").value;
+        password = document.getElementById("regPassword").value;
+      }
+      if (email === user.email && password === user.password) {
+        document.querySelector(".container").style.display = "none";
+        document.getElementById("newsfeed").style.display = "block";
+      } else {
+        alert("Email ou mot de passe incorrect.");
+      }
+    }
+
+    function addPost() {
+      const content = document.getElementById("postContent").value;
+      if (content.trim() !== "") {
+        const postDiv = document.createElement("div");
+        postDiv.className = "post";
+        postDiv.innerHTML = `<strong>Driss Mednum</strong><p>${content}</p>`;
+        document.getElementById("posts").prepend(postDiv);
+        document.getElementById("postContent").value = "";
+      }
+    }
+
+    window.onload = populateDateSelects;
+  </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
